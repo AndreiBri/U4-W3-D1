@@ -23,18 +23,23 @@ WHERE EXTRACT(YEAR FROM data_attivazione) = 2017
   AND (in_produzione = TRUE OR in_commercio = TRUE);
 
 
--- 5. Estrarre le fatture con importo inferiore a 1000 e i dati dei clienti collegati
-SELECT
-    f.numero_fattura,
-    f.tipologia,
-    f.importo,
-    f.iva,
-    f.data_fattura,
-    c.numero_cliente,
-    c.nome,
-    c.cognome,
-    c.anno_di_nascita,
-    c.regione_residenza
+-- -- 5. Estrarre le fatture con importo inferiore a 1000 e i dati dei clienti collegati
+-- SELECT
+--     f.numero_fattura,
+--     f.tipologia,
+--     f.importo,
+--     f.iva,
+--     f.data_fattura,
+--     c.numero_cliente,
+--     c.nome,
+--     c.cognome,
+--     c.anno_di_nascita,
+--     c.regione_residenza
+-- FROM fatture f
+-- JOIN clienti c ON f.id_cliente = c.numero_cliente
+-- WHERE f.importo < 1000;
+
+SELECT *
 FROM fatture f
 JOIN clienti c ON f.id_cliente = c.numero_cliente
 WHERE f.importo < 1000;
