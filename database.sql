@@ -63,7 +63,7 @@ SELECT
     COUNT(*)                        AS numero_fatture
 FROM fatture
 WHERE iva = 20.00
-GROUP BY EXTRACT(YEAR FROM data_fattura)
+GROUP BY anno
 ORDER BY anno;
 
 
@@ -73,5 +73,5 @@ SELECT
     COUNT(*)                        AS numero_fatture,
     SUM(importo)                    AS totale_importi
 FROM fatture
-GROUP BY EXTRACT(YEAR FROM data_fattura)
+GROUP BY anno
 ORDER BY anno;
